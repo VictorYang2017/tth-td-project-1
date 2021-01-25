@@ -17,6 +17,7 @@ const quotes = [
     quote:
       "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
     source: "Steve Jobs",
+    tags: "Life"
   },
   {
     quote:
@@ -27,6 +28,7 @@ const quotes = [
   {
     quote: "Life is really simple, but we insist on making it complicated.",
     source: "Confucius",
+    tags: "Life"
   },
 ];
 

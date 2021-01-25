@@ -8,13 +8,15 @@ const generateRandomIndex = (maxNum) => {
 
 /***
  * `getRandomQuote` function
+ * Getting random quote from the quotes array in data.js
  ***/
 let previousQuoteObj = {};
 
 const getRandomQuote = () => {
   let randomQuoteObj = {};
-  // Prevent call/show same background color in a row
+  // Prevent call/show same quote in a row
   do {
+    // Get a random quote
     randomQuoteObj = quotes[generateRandomIndex(quotes.length)];
   } while (randomQuoteObj.quote === previousQuoteObj.quote);
   previousQuoteObj = randomQuoteObj;
@@ -23,6 +25,7 @@ const getRandomQuote = () => {
 
 /***
  * `getRandomBackgroundColor` function
+ * Getting random background color from background colors array in data.js
  ***/
 let previousBackgroundColorValue = "";
 
@@ -30,6 +33,7 @@ const getRandomBackgroundColor = () => {
   let backgroundColorValue = "";
   // Prevent call/show same background color in a row
   do {
+        // Get a random background color
     backgroundColorValue =
       backgroundColors[generateRandomIndex(backgroundColors.length)];
   } while (backgroundColorValue === previousBackgroundColorValue);
@@ -39,6 +43,7 @@ const getRandomBackgroundColor = () => {
 
 /***
  * `createHtmlString` function
+ * Creating new quote html elements
  ***/
 const createHtmlString = (randomQuoteObj) => {
   let html = `<p class="quote">${randomQuoteObj.quote}</p>
@@ -47,6 +52,8 @@ const createHtmlString = (randomQuoteObj) => {
     html += `<span class="citation">${randomQuoteObj.citation}</span>`;
   } else if (randomQuoteObj.year) {
     html += `<span class="year">${randomQuoteObj.year}</span>`;
+  } else if (randomQuoteObj.tags) {
+    html += `<span class="tags">, ${randomQuoteObj.tags}</span>`;
   }
   html += `</p>`;
   return html;
@@ -54,6 +61,7 @@ const createHtmlString = (randomQuoteObj) => {
 
 /***
  * `autoRefreshQuotes` function
+ * Print new quote every 10 second
  ***/
 let timer;
 

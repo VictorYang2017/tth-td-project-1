@@ -14,12 +14,14 @@ const bodyHtmlEl = document.querySelector("body");
  * `printQuote` function
  ***/
 const printQuote = () => {
+  // Removes timer, if printQuote was executed
   clearInterval(timer);
   const randomBackgroundColor = getRandomBackgroundColor(backgroundColors);
   const randomQuoteObj = getRandomQuote(quotes);
   bodyHtmlEl.style.backgroundColor = randomBackgroundColor;
   const htmlString = createHtmlString(randomQuoteObj);
   document.getElementById("quote-box").innerHTML = htmlString;
+  // Start the timer again
   autoRefreshQuotes();
   return htmlString;
 };
